@@ -4,16 +4,20 @@
             <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Daftar Buku') }}
             </h2>
-            @if(Auth::check() && Auth::user()->role === 'admin')
-            <a href="{{ route('buku.create') }}" class="inline-block px-4 py-2 border border-blue-500 text-blue-500 bg-blue-100 rounded">
-                {{ __('Tambah Buku Baru') }}
-            </a>
-            @endif
-            <a href="{{ route('buku.myfavorites') }}" class="inline-block px-4 py-2 border border-blue-500 text-blue-500 bg-blue-100 rounded">
-                {{ __('My Favourite Books') }}</a>
 
-            <a href="{{ route('buku.populer') }}" class="inline-block px-4 py-2 border border-blue-500 text-blue-500 bg-blue-100 rounded">
-                {{ __('Popular Books') }}</a>
+            <div class="flex justify-end items-center space-x-2">
+                @if(Auth::check() && Auth::user()->role === 'admin')
+                <a href="{{ route('buku.create') }}" class="inline-block px-4 py-2 border border-blue-500 text-blue-500 bg-blue-100 rounded">
+                    {{ __('Tambah Buku Baru') }}
+                </a>
+                @endif
+                <a href="{{ route('buku.myfavorites') }}" class="inline-block px-4 py-2 border border-blue-500 text-blue-500 bg-blue-100 rounded">
+                    {{ __('My Favourite Books') }}</a>
+
+                <a href="{{ route('buku.populer') }}" class="inline-block px-4 py-2 border border-blue-500 text-blue-500 bg-blue-100 rounded">
+                    {{ __('Popular Books') }}</a>
+            </div>
+
         </div>
     </x-slot>
 

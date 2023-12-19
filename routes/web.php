@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerBuku;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/buku/edit/{id}', [ControllerBuku::class, 'edit'])->name('buku.edit');
     Route::post('/buku/update/{id}', [ControllerBuku::class, 'update'])->name('buku.update');
     Route::delete('/buku/{buku}/gallery/{gallery}', [ControllerBuku::class, 'deleteGallery'])->name('buku.deleteGallery');
+    Route::resource('kategori', KategoriController::class);
 });
 
 

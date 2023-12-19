@@ -10,8 +10,10 @@ class Buku extends Model
 {
     protected $table = 'buku';
 
-    protected $fillable = ['id', 'judul', 'penulis', 'harga', 'tgl_terbit', 'created_at', 'updated_at', 'filename', 'filepath','rating', 'buku_seo',
-    'rating_count',];
+    protected $fillable = [
+        'id', 'judul', 'penulis', 'harga', 'tgl_terbit', 'created_at', 'updated_at', 'filename', 'filepath', 'rating', 'buku_seo',
+        'rating_count',
+    ];
 
     protected $dates = ['tgl_terbit'];
 
@@ -23,5 +25,10 @@ class Buku extends Model
     public function photos()
     {
         return $this->hasMany('App\Models\Buku', 'id', 'id');
+    }
+
+    public function kategoris()
+    {
+        return $this->belongsToMany(Kategori::class, 'buku_kategori');
     }
 }

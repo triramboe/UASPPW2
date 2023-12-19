@@ -1,0 +1,24 @@
+<!-- resources/views/kategori/show.blade.php -->
+
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Buku Berdasarkan Kategori') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-gray-900 dark:text-gray-100">
+                <!-- Tampilan buku berdasarkan kategori -->
+                <h3 class="text-lg font-semibold mb-4">{{ $kategori->nama }}</h3>
+                @foreach($kategori->bukus as $buku)
+                    <div class="mb-4">
+                        <h4 class="text-md font-medium">{{ $buku->judul }}</h4>
+                        <!-- Tambahkan informasi buku sesuai kebutuhan -->
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</x-app-layout>
